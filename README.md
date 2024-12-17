@@ -45,7 +45,40 @@ The main idea of ReAtCo is to refocus the cross-attention activation responses b
 ## Usage
 We now introduce how to run our codes and edit the controllable and desired target videos.
 
-### Requirements
+### 1. Requirements
 
-We use the classic Tune-A-Video as the pretrained base video editing model, so that the Requirements could follow [Tune-A-Video's publicly available codes](https://github.com/showlab/Tune-A-Video).
-Note that 
+We use the classic Tune-A-Video as the pretrained base video editing model so that the Requirements can follow [Tune-A-Video's publicly available codes](https://github.com/showlab/Tune-A-Video).
+**Note:** Due to the latest [xformers](https://github.com/facebookresearch/xformers) requiring PyTorch 2.5.1, we have tested our codes on the latest version with the V100 GPU, and the full environment is reported in **`environment.txt`**
+
+### 2. Pretrained Video Editing Model
+Before obtaining the Tune-A-Video editing model, you need to download the pretrained [Stable Diffusion v1-4](https://huggingface.co/CompVis/stable-diffusion-v1-4) model, which should be placed in the `./checkpoints`.
+Then run the following command
+```bash
+accelerate launch train_tuneavideo.py --config=configs/dolphins-swimming.yaml
+```
+And, the pretrained video editing models are saved in `./tune_a_video_model`.
+
+### 3. ReAtCo Video Editing
+
+Generating video latents with the following command:
+```bash
+python generation_video_latents.py
+```
+Editing videos with the following command:
+```bash
+python reatco_editing_dolphins-swimming.py
+```
+The edited videos are saved in `./edited_videos`.
+
+**Note:** In the script above, the default setting is the **Resource-friendly ReAtCo Paradigm**, which ensures that ReAtCo can edit videos on a consumer-grade GPU (e.g. RTX 4090/3090). More details can be found in the Appendix of our [paper](http://arxiv.org/abs/2412.11710). In particular, we set the `window_size=4` as default, which is compatible with RTX 3090/4090 GPU. If you have sufficient GPU resources and do not want to use the resource-friendly paradigm, please set `window_size=video_length`.
+
+### Citation
+If you find the codes helpful in your research or work, please cite the following paper.
+```
+@article{ReAtCo,
+  title={Re-Attentional Controllable Video Diffusion Editing},
+  author={Wang, Yuanzhi and Li, Yong and Liu, Mengyi and Zhang, Xiaoya and Liu, Xin and Cui, Zhen and Chan, Antoni B.},
+  journal={arXiv preprint arXiv:2412.11710},
+  year={2024}
+}
+```
