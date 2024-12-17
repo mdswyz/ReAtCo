@@ -38,7 +38,7 @@ This work proposes a new text-guided video editing framework focusing on control
 </table >
 
 ## Overview Framework of ReAtCo
-The main idea of ReAtCo is to refocus the cross-attention activation responses between the edited text prompt and the target video during the denoising stage, resulting in a spatially location-aligned and semantically high-fidelity manipulated video. More details could be found in our [paper](http://arxiv.org/abs/2412.11710).
+The main idea of ReAtCo is to refocus the cross-attention activation responses between the edited text prompt and the target video during the denoising stage, resulting in a spatially location-aligned and semantically high-fidelity manipulated video. More details can be found in our [paper](http://arxiv.org/abs/2412.11710).
 
 ![](framework.jpg)
 
@@ -52,7 +52,7 @@ We use the classic Tune-A-Video as the pretrained base video editing model so th
 
 ### 2. Pretrained Video Editing Model
 Before obtaining the Tune-A-Video editing model, you need to download the pretrained [Stable Diffusion v1-4](https://huggingface.co/CompVis/stable-diffusion-v1-4) model, which should be placed in the `./checkpoints`.
-Then run the following command
+Then run the following command:
 ```bash
 accelerate launch train_tuneavideo.py --config=configs/dolphins-swimming.yaml
 ```
@@ -70,10 +70,10 @@ python reatco_editing_dolphins-swimming.py
 ```
 The edited videos are saved in `./edited_videos`.
 
-**Note:** In the script above, the default setting is the **Resource-friendly ReAtCo Paradigm**, which ensures that ReAtCo can edit videos on a consumer-grade GPU (e.g. RTX 4090/3090). More details can be found in the Appendix of our [paper](http://arxiv.org/abs/2412.11710). In particular, we set the `window_size=4` as default, which is compatible with RTX 3090/4090 GPU. If you have sufficient GPU resources and do not want to use the resource-friendly paradigm, please set `window_size=video_length`.
+**Note:** In the script above, the default setting is the **Resource-friendly ReAtCo Paradigm**, which ensures that ReAtCo can edit videos on a consumer-grade GPU (e.g. RTX 4090/3090). More details can be found in the Appendix of our [paper](http://arxiv.org/abs/2412.11710). In particular, we set the `window_size=4` as default, which is compatible with RTX 4090/3090 GPU. If you have sufficient GPU resources and do not want to use the resource-friendly paradigm, please set `window_size=video_length`.
 
 ### Citation
-If you find the codes helpful in your research or work, please cite the following paper.
+If you find the codes helpful in your research or work, please cite the following paper:
 ```
 @article{ReAtCo,
   title={Re-Attentional Controllable Video Diffusion Editing},
