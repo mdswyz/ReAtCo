@@ -17,10 +17,10 @@ This work proposes a new text-guided video editing framework focusing on control
   <td><img src="video_demo/A turtle and a goldfish are swimming in the blue ocean..gif"></td>
   <td><img src="video_demo/A jellyfish and a octopus are swimming in the blue ocean..gif"></td>
   <tr>
-  <td width=25% style="text-align:center;">[Source Video]: Two dolphins are swimming in the blue ocean.</td>
-  <td width=25% style="text-align:center;">A jellyfish and a goldfish are swimming in the blue ocean, with the jellyfish is to the left of the goldfish.</td>
-  <td width=25% style="text-align:center;">A turtle and a goldfish are swimming in the blue ocean, with the turtle is to the left of the goldfish.</td>
-  <td width=25% style="text-align:center;">A jellyfish and a octopus are swimming in the blue ocean, with the jellyfish is to the left of the octopus.</td>
+  <td width=25% style="text-align:center;">[Source Video]: "Two dolphins are swimming in the blue ocean."</td>
+  <td width=25% style="text-align:center;">"A jellyfish and a goldfish are swimming in the blue ocean, with the jellyfish is to the left of the goldfish."</td>
+  <td width=25% style="text-align:center;">"A turtle and a goldfish are swimming in the blue ocean, with the turtle is to the left of the goldfish."</td>
+  <td width=25% style="text-align:center;">"A jellyfish and a octopus are swimming in the blue ocean, with the jellyfish is to the left of the octopus."</td>
 </tr>
 </table >
 
